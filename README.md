@@ -1,7 +1,7 @@
 # waypoint-create-app
 ロボットのTargetPoseをPublishする。Reactとroslibによって開発。
 
-<img src="app_view.jpeg" width="350" height="700">
+![app_view](https://github.com/user-attachments/assets/389c6266-2c18-4402-8c0c-0e0d342e5e1f)
 
 # Install
 ```bash
