@@ -1,6 +1,6 @@
 import './App.css';
 import ROSLIB from 'roslib';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 
 const ros = new ROSLIB.Ros({
   url: 'ws://10.181.15.175:64205'
@@ -22,9 +22,19 @@ function CurrentView()
 {
   const [cur_pos, setPosition] = useState({x:0.0, y:0.0, r : 0.0});
 
-  sub_current.subscribe((msg)=>{
-    setPosition(msg.x, msg.y, msg.z);
-  });
+  useEffect(()=>{
+    sub_current.subscribe((msg)=>{
+      setPosition({
+        x: msg.x,
+        y: msg.y,
+        r: msg.z
+      });
+    });
+
+    return () =>{
+      sub_current.unsubscribe();
+    };
+  }, []);
 
   return(
     <div>
@@ -34,6 +44,7 @@ function CurrentView()
       <p>rotation:{cur_pos.r}</p>
     </div>
   );
+  
 }
 
 function TargetPublisher()
