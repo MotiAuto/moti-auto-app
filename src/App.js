@@ -8,13 +8,13 @@ const ros = new ROSLIB.Ros({
 
 const sub_current = new ROSLIB.Topic({
     ros : ros,
-    name : '/current',
+    name : '/to_wpc',
     messageType : 'geometry_msgs/Point'
 });
 
 const pub_target = new ROSLIB.Topic({
     ros : ros,
-    name : '/target',
+    name : '/from_wpc',
     messageType : 'geometry_msgs/Point'
 });
 
