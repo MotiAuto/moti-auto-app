@@ -3,7 +3,7 @@ import ROSLIB from 'roslib';
 import { useState } from 'react';
 
 const ros = new ROSLIB.Ros({
-  url: 'ws://192.168.11.65:9090'
+  url: 'ws://10.181.15.175:64205'
 });
 
 const sub_current = new ROSLIB.Topic({
